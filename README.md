@@ -13,7 +13,7 @@ Quick example:
       search_in :title, :body, :author_sn, :realtime => false
     end
   
-  Then
+Then
     search = MongoTank::Query.new
     search.where(:body => "MongoTank").with(:author_sn => "abhishiv")
     results = search.execute
