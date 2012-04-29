@@ -35,7 +35,6 @@ module MongoTank
 
   def submit_to_index_tank(opts = {:force => false})
     if self.realtime == true || opts[:force] == true
-      begin
         client = ::MongoTank::Connection.instance.client
         doc = self.prepare_document
         doc_id = doc.delete(:_doc_id)
@@ -44,7 +43,6 @@ module MongoTank
         if self.embedded?
           self.change_parents_state_after_submit
         end
-      end
     end
   end
   
