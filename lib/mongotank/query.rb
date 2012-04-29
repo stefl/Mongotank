@@ -26,7 +26,7 @@
     end
     
     def execute_query
-      client = ::MongoTank::Connection.instance.client
+      client = ::MongoTank::Connection.new.client
       options = {}
       options[:function] = @function if @function
       options[:fetch] = @get if @get
