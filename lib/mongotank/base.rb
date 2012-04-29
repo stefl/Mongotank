@@ -35,7 +35,7 @@ module MongoTank
 
   def submit_to_index_tank(opts = {:force => false})
     if self.realtime == true || opts[:force] == true
-        client = ::MongoTank::Connection.instance.client
+        client = ::MongoTank::Connection.new.client
         doc = self.prepare_document
         doc_id = doc.delete(:_doc_id)
         resp = client.document(doc_id).add(doc)
